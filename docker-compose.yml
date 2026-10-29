@@ -23,7 +23,7 @@ services:
 
   app:
     build: .
-    image: temirkhan-yernar-student-api:v1.0-temirkhan-yernar-37722
+    image: temirkhan-yernar-student-api:v1.1-temirkhan-yernar-37722
     container_name: temirkhan-yernar-student-api
     depends_on:
       db:
