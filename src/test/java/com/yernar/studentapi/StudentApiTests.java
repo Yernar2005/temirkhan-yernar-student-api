@@ -24,7 +24,7 @@ class StudentApiTests {
     void infoShowsStudentName() throws Exception {
         mockMvc.perform(get("/api/info"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.student").value("Broken Name"));
+                .andExpect(jsonPath("$.student").value("Yernar Temirkhan"));
     }
 
     @Test
