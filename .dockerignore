@@ -1,0 +1,10 @@
+
+.git
+.gradle
+.idea
+build
+.env
+logs
+backups
+scripts
+*.md
