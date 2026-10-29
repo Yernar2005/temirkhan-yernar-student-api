@@ -1,3 +1,4 @@
+
 package com.yernar.studentapi;
 
 import org.junit.jupiter.api.Test;
@@ -43,4 +44,19 @@ class StudentApiTests {
                 .andExpect(status().isCreated())
                 .andExpect(jsonPath("$.id").exists());
     }
+
+    @Test
+    void searchByLastNameFindsStudentIgnoringCase() throws Exception {
+        String json = "{\"firstName\":\"Search\",\"lastName\":\"Searchable\","
+                + "\"email\":\"junit.search@example.com\",\"groupName\":\"IT2-2314\"}";
+        mockMvc.perform(post("/api/students")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(json))
+                .andExpect(status().isCreated());
+
+        mockMvc.perform(get("/api/students/search").param("lastName", "searchable"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$[0].lastName").value("Searchable"));
+    }
 }
+

@@ -1,3 +1,4 @@
+
 package com.yernar.studentapi.service;
 
 import com.yernar.studentapi.exception.StudentNotFoundException;
@@ -25,6 +26,10 @@ public class StudentService {
                 .orElseThrow(() -> new StudentNotFoundException(id));
     }
 
+    public List<Student> searchByLastName(String lastName) {
+        return repository.findByLastNameContainingIgnoreCase(lastName);
+    }
+
     public Student create(Student student) {
         student.setId(null);
         return repository.save(student);
@@ -43,3 +48,4 @@ public class StudentService {
         repository.delete(findById(id));
     }
 }
+

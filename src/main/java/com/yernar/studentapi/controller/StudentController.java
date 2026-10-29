@@ -1,3 +1,4 @@
+
 package com.yernar.studentapi.controller;
 
 import com.yernar.studentapi.model.Student;
@@ -23,6 +24,11 @@ public class StudentController {
         return service.findAll();
     }
 
+    @GetMapping("/search")
+    public List<Student> searchByLastName(@RequestParam String lastName) {
+        return service.searchByLastName(lastName);
+    }
+
     @GetMapping("/{id}")
     public Student getById(@PathVariable Long id) {
         return service.findById(id);
@@ -45,3 +51,4 @@ public class StudentController {
         service.delete(id);
     }
 }
+
