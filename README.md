@@ -12,3 +12,7 @@ Author: Yernar Temirkhan
 - Added the endpoint `GET /api/students/search?lastName=...`.
   It finds students by last name (case-insensitive, partial match).
 - Added an automated test for the new endpoint.
+
+## CI
+This repository is built automatically by Jenkins (job Temirkhan_Yernar_Student_API).
+Pipeline stages: Checkout, Build, Test, Docker Build, Verify. Author: Yernar Temirkhan.
